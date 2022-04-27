@@ -15,8 +15,7 @@
           <li class="nav-item dropdown">
             <%= image_tag "https://media.cdn.teamtailor.com/images/s3/teamtailor-production/employee_picture-v3/image_uploads/a8cf4cf6-d469-4232-82a2-ed20b51f32ab/original.jpeg?outputFormat=webp", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "My Cart", carts_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>

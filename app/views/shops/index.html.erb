@@ -11,7 +11,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Code</th>
+      <%# <th>Code</th> %>
       <th>Price</th>
       <th colspan="3"></th>
     </tr>
@@ -21,7 +21,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
-        <td><%= product.code %></td>
+       
         <td><%= number_to_currency product.price %></td>
         <td><%= link_to 'Details', shop_path(product), class: "text-decoration-none" %></td>
 
