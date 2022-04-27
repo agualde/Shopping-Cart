@@ -1,0 +1,13 @@
+.table {
+  width: 100%;
+}
+
+.table > thead {
+  border-bottom: none;
+}
+
+.new_order_item {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}

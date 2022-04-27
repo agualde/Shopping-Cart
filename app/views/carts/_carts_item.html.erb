@@ -1,24 +1,28 @@
-<h1>Cart#show</h1>
-<p>Find me in app/views/cart/show.html.erb</p>
+<div class="min-height">
+        <% @order_items.each do |item| %>
+        <div class="cart-details">
+            <div class="d-flex justify-start align-items-center">
+                <h3 class="m-0"><%= item.product.name %></h3>
+                <h6 class="ml-2 m-0">(<%= number_to_currency item.product.price %>)</h6>
+            </div>
 
+            <%= form_for item, remote: true do |f| %>
 
-<% @order_items.each do |item| %>
+                <%= f.hidden_field :poduct_id, :value => item.product.id %>
+                <%= f.number_field :quantity, :value => item.quantity.to_i, class: "text-center" %>
+                <%= f.submit 'Update Cart', class: 'add_to_cart' %>
 
-    <h3><%= item.product.name %></h3>
-    <h5><%= item.product.price %></h5>
+                <%= link_to "[Delete]", order_item_path(item), method: :delete, remote: true, class: "text-decoration-none ml-2"  %>
 
-    <%= form_for item, remote: true do |f| %>
+            <% end %>
+        </div>
 
-        <%= f.hidden_field :poduct_id, :value => item.product.id %>
-        <%= f.number_field :quantity, :value => item.quantity.to_i %>
-        <%= f.submit 'Update Cart' %>
+            <h6 class="d-flex justify-content-end subtotal-margin">Subtotal: <%= number_to_currency item.total %></h6>
 
-        <%= link_to "Remove from cart", order_item_path(item), method: :delete, remote: true  %>
+        <% end %>
+</div>
 
-    <% end %>
-
-    <h2>Subtotal: <%= item.total %></h2>
-
-<% end %>
-
-<h3>Your current cart value has a subtotal of: <%= current_order.subtotal %></h3>
+        <div class="cart-total">
+            <h3>Total:</h3>
+            <h3 class="subtotal-margin"><%= number_to_currency current_order.subtotal %></h3>
+        </div>  

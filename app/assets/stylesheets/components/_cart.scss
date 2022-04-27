@@ -1,0 +1,31 @@
+.cart-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 35px;
+}
+
+.edit_order_item {
+  height: 100%;
+}
+
+.ml-2 {
+  margin-left: 0.5rem !important;
+}
+
+.subtotal-margin {
+  margin-right: 13rem;
+}
+
+.min-height {
+  min-height: 75vh;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-item {
+  border-bottom: 1px solid black;
+}
