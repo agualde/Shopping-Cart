@@ -1,5 +1,5 @@
 <div class="min-height">
-        <% @order_items.each do |item| %>
+        <% @order_items.order("created_at").each do |item| %>
         <div class="cart-details">
             <div class="d-flex justify-start align-items-center">
                 <h3 class="m-0"><%= item.product.name %></h3>

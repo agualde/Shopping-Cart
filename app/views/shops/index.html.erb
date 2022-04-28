@@ -17,7 +17,7 @@
   </thead>
 
   <tbody>
-    <% @products.each do |product| %>
+    <% @products.order('name').each do |product| %>
       <tr>
         <td><%= product.name %></td>
        
