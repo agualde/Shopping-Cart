@@ -8,7 +8,7 @@
 
             <%= form_for item, remote: true do |f| %>
 
-                <%= f.hidden_field :poduct_id, :value => item.product.id %>
+                <%= f.hidden_field :product_id, :value => item.product.id %>
                 <%= f.number_field :quantity, :value => item.quantity.to_i, class: "text-center" %>
                 <%= f.submit 'Update Cart', class: 'add_to_cart' %>
 
@@ -26,3 +26,4 @@
             <h3>Total:</h3>
             <h3 class="subtotal-margin"><%= number_to_currency current_order.subtotal %></h3>
         </div>  
+<%  %>
