@@ -16,4 +16,11 @@ tr {
 .shop-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  background-color: #f4f4f480;
+  border: 1px solid #ced4da00;
+  border-radius: 80px;
 }

@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
-  <div class="d-flex justify-content-center text-center">
-    <%= form_with url: root_path, method: :get, html: { class:'my-4', style: "width: 35%" } do |f| %>
-        <%= f.text_field :query, class: "form-control", placeholder: 'Search for products', value: params[:query] %>
-    <% end %>
-  </div>  
 
 <div class="shop-header">
-  <h1>Products</h1>
-  <div id="cart">
+  <div class="space">
+    <h1>Products</h1>
+  </div>
+  <div class="text-center space">
+    <%= form_with url: root_path, method: :get, html: { class:'my-4' } do |f| %>
+        <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search by code or name', value: params[:query] %>
+    <% end %>
+  </div>  
+  <div class="space d-flex justify-content-end" id="cart">
     <%= render 'carts/cart' %>
   </div>
 </div>
