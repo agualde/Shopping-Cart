@@ -3,6 +3,12 @@
 
 - Admin access and privileges:
 
+Two users are provided:
+
+1 - email: shopper@gmail.com, password: 123456, admin: false
+
+2 - email: admin@gmail.com, password: 123456, admin: true
+
 After adding "devise gem" for authentication a boolean value is added to the User model named "admin". The gem "rails_admin" was also added to allow
 admin access to easily and with no prior coding experience have full CRUD capabilities from a panel found at the URL: "/admin". A user without the
 true boolean value in this position will get redirected to the root_path
