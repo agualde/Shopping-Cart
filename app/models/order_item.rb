@@ -8,33 +8,7 @@ class OrderItem < ApplicationRecord
   def unit_price
     
     if persisted? 
-
-      if product.code == 'GR1' && quantity >= 2 && self[:discounted] == false
-        self[:discounted] = true
-        self[:unit_price] = self[:unit_price] / 2
-      elsif product.code == 'GR1' && quantity < 2 && self[:discounted] == true 
-        self[:discounted] = false   
-        self[:unit_price] = self[:unit_price] * 2
-
-      elsif product.code == 'SR1' && quantity >= 3 && self[:discounted] == false
-        self[:discounted] = true
-        self[:unit_price] = self[:unit_price] - 0.5
-      elsif product.code == 'SR1' && quantity < 3 && self[:discounted] == true 
-        self[:discounted] = false   
-        self[:unit_price] = self[:unit_price] + 0.5
-
-
-      elsif product.code == 'CF1' && quantity >= 3 && self[:discounted] == false
-        self[:discounted] = true
-        self[:unit_price] = self[:unit_price] * 0.66
-      elsif product.code == 'CF1' && quantity < 3 && self[:discounted] == true 
-        self[:discounted] = false   
-        self[:unit_price] = self[:unit_price] / 0.66
-        
-      else
-        self[:unit_price]
-      end
- 
+      apply_discount
     else
       product.price
     end
@@ -53,5 +27,32 @@ class OrderItem < ApplicationRecord
 
   def set_total
     self[:total] = total * quantity
+  end
+
+  def apply_discount
+    if product.code == 'GR1' && quantity >= 2 && self[:discounted] == false
+      self[:discounted] = true
+      self[:unit_price] = self[:unit_price] / 2
+    elsif product.code == 'GR1' && quantity < 2 && self[:discounted] == true 
+      self[:discounted] = false   
+      self[:unit_price] = self[:unit_price] * 2
+
+    elsif product.code == 'SR1' && quantity >= 3 && self[:discounted] == false
+      self[:discounted] = true
+      self[:unit_price] = self[:unit_price] - 0.5
+    elsif product.code == 'SR1' && quantity < 3 && self[:discounted] == true 
+      self[:discounted] = false   
+      self[:unit_price] = self[:unit_price] + 0.5
+
+    elsif product.code == 'CF1' && quantity >= 3 && self[:discounted] == false
+      self[:discounted] = true
+      self[:unit_price] = self[:unit_price] * 0.66
+    elsif product.code == 'CF1' && quantity < 3 && self[:discounted] == true 
+      self[:discounted] = false   
+      self[:unit_price] = self[:unit_price] / 0.66
+      
+    else
+      self[:unit_price]
+    end
   end
 end

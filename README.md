@@ -1,1 +1,78 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+- Sessions and cookies:
+  A session is used to track users shopping carts wether logged in or not. The variable current_cart is in the ApplicationHelper and imported into the ApplicationController.
+
+- Admin access and privileges:
+
+After adding "devise gem" for authentication a boolean value is added to the User model named "admin". The gem "rails_admin" was also added to allow
+admin access to easily and with no prior coding experience have full CRUD capabilities from a panel found at the URL: "/admin". A user without the
+true boolean value in this position will get redirected to the root_path
+
+- Discount logic:
+
+  It is implemented at the unit_price level in the OrderItem model.
+
+  Three conditions have to be met for a discount to be applied:
+
+  1 - The product's code needs to match a desired product code (GR1 which means "Green Tea" in this case).
+  2 - A quantity cuota needs to be met (2 or more in this case).
+  3 - We check a boolean value in the OrderItem table that defaults to false, implying that this item in your cart has not been discounted before
+  if product.code == 'GR1' && quantity >= 2 && self[:discounted] == false
+
+  After all conditions are met:
+
+  The product gets marked as discounted
+  self[:discounted] = true
+
+  Discount gets applied (In this case half off)
+  self[:unit_price] = self[:unit_price] / 2
+
+  If the product quantity in your cart drops below a desired treshold and the discount had been applied before
+  elsif product.code == 'GR1' && quantity < 2 && self[:discounted] == true
+
+  We mark it as not discounted
+  self[:discounted] = false
+
+  And return the unit_price of the item to it's original value
+  self[:unit_price] = self[:unit_price] x 2
+
+  In this case:
+
+  1 - We find "Strawberries" by their code
+  2 - When 3 or more are in your cart
+  3 - And they havn't been discounted before
+  elsif product.code == 'SR1' && quantity >= 3 && self[:discounted] == false
+
+  The product gets marked as discounted
+  self[:discounted] = true
+
+  And fifty (50) cents are removed from each unit added to your cart
+  self[:unit_price] = self[:unit_price] - 0.5
+
+  A previously discounted bundle of "Strawberries" gets identified
+  elsif product.code == 'SR1' && quantity < 3 && self[:discounted] == true
+
+  It's discounted status is reset to false
+  self[:discounted] = false
+
+  And fifty (50) cents gets added to each unit item
+  self[:unit_price] = self[:unit_price] + 0.5
+
+  1 - Coffe get's identified by it's code
+  2 - When 3 or more are in your cart
+  3 - And it hasn't been discounted before
+  elsif product.code == 'CF1' && quantity >= 3 && self[:discounted] == false
+
+  The product gets marked as discounted
+  self[:discounted] = true
+
+  A discount of two thirds off each unit is applied
+  self[:unit_price] = self[:unit_price] / (2 / 3)
+
+  If the Coffee quantity in your cart where to drop below three (3) units and the discount had been applied before
+  elsif product.code == 'CF1' && quantity < 3 && self[:discounted] == true
+
+  The cart item containing the coffee gets marked as not discounted
+  self[:discounted] = false
+
+  And its price is returned to the default value
+  self[:unit_price] = self[:unit_price] \* (2 / 3)
