@@ -1,4 +1,5 @@
 - Sessions and cookies:
+
   A session is used to track users shopping carts wether logged in or not. The variable current_cart is in the ApplicationHelper and imported into the ApplicationController.
 
 - Admin access and privileges:
@@ -15,7 +16,7 @@ true boolean value in this position will get redirected to the root_path
 
 - Discount logic:
 
-  It is implemented at the unit_price level in the OrderItem model.
+  It is implemented at the unit_price level in the OrderItem model as a private method called when the unit_price is being computed in the model itself.
 
   Three conditions have to be met for a discount to be applied:
 

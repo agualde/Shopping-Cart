@@ -6,7 +6,6 @@ class OrderItem < ApplicationRecord
   before_save :set_total
 
   def unit_price
-    
     if persisted? 
       apply_discount
     else
@@ -50,7 +49,7 @@ class OrderItem < ApplicationRecord
     elsif product.code == 'CF1' && quantity < 3 && self[:discounted] == true 
       self[:discounted] = false   
       self[:unit_price] = self[:unit_price] / 0.66
-      
+
     else
       self[:unit_price]
     end
