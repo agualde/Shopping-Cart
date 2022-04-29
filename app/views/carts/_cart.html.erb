@@ -1,1 +1,1 @@
-<%= link_to "🛒 (#{current_order.order_items.size}) #{current_order.order_items.size == 1 ? "item" : "items"} with a value of #{number_to_currency current_order.subtotal}", carts_path, class: "text-right text-decoration-none" %>
+<%= link_to "🛒 (#{current_order.order_items.size}) #{current_order.order_items.size == 1 ? "item" : "items"} in your cart. Total: #{number_to_currency current_order.subtotal}", carts_path, class: "text-right text-decoration-none" %>

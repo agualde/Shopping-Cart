@@ -1,6 +1,16 @@
+- Base level logic:
+
+A simple DB structure is implemented consisting of four models:
+1 - User,
+2 - Product,
+3 - OrderItem and
+4 - Cart
+
+A User can visit the Product index and show page, select a product. A call to action in the form of button 'Add to Cart' and a 'Quantity' number field is present. This action generates an Order Item which is composed of user_id, product_id, quantity, unit_price and total_price. In the Order Item model we define methods to calculate prices based on quantity and unit price, there discounts are applied accordingly. An Order Item belongs to a Cart which consists of total and subtotal. Inside the Cart model we have methods that collect and calculate total price which is informed by the Order Item's total unit price and quantity.
+
 - Sessions and cookies:
 
-  A session is used to track users shopping carts wether logged in or not. The variable current_cart is in the ApplicationHelper and imported into the ApplicationController.
+  A session is used to track users shopping carts. The variable current_cart is in the ApplicationHelper and imported into the ApplicationController.
 
 - Admin access and privileges:
 
@@ -10,9 +20,16 @@ Two users are provided:
 
 2 - email: admin@gmail.com, password: 123456, admin: true
 
-After adding "devise gem" for authentication a boolean value is added to the User model named "admin". The gem "rails_admin" was also added to allow
+After adding "devise gem" for authentication a boolean value is added to the User model named "admin".
+
+The gem "rails_admin" was also added to allow
 admin access to easily and with no prior coding experience have full CRUD capabilities from a panel found at the URL: "/admin". A user without the
 true boolean value in this position will get redirected to the root_path
+
+- PG_Search:
+
+The gem is implemented and a search form performing a GET request is present in the Product index page which redirects to itself. If a query is present
+the method .global_search is applied.
 
 - Discount logic:
 
