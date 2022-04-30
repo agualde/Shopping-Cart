@@ -15,7 +15,7 @@ A simple DB structure is implemented consisting of four models:
 3 - OrderItem and
 4 - Cart
 
-A User can visit the Product index and show page, select a product. A call to action in the form of button 'Add to Cart' and a 'Quantity' number field is present. This action generates an Order Item which is composed of user_id, product_id, quantity, unit_price and total_price. In the Order Item model we define methods to calculate prices based on quantity and unit price, there discounts are applied accordingly. An Order Item belongs to a Cart which consists of total and subtotal. Inside the Cart model we have methods that collect and calculate total price which is informed by the Order Item's total unit price and quantity.
+A User can visit the Product index and show page, select a product. A call to action in the form of button 'Add to Cart' and a 'Quantity' number field is present. This action generates an Order Item which is composed of user_id, product_id, quantity, unit_price and total_price. In the Order Item model we define methods to calculate prices based on quantity and unit price, discounts are applied accordingly at the unit price level. An Order Item belongs to a Cart which consists of total and subtotal. Inside the Cart model we have methods that collect and calculate total price which is informed by the Order Item's total unit price and quantity.
 
 - Sessions and cookies:
 
@@ -29,10 +29,9 @@ Two users are provided:
 
 2 - email: admin@gmail.com, password: 123456, admin: true
 
-After adding "devise gem" for authentication a boolean value is added to the User model named "admin".
+After adding the devise gem for authentication a boolean value is added to the User model table named "admin".
 
-The gem "rails_admin" was also added to allow
-admin access to easily and with no prior coding experience have full CRUD capabilities from a panel found at the URL: "/admin". A user without the
+The gem "rails_admin" was added to allow users marked as admins to access full CRUD capabilities from a panel found at the root URL ending in "/admin". A user without the
 true boolean value in this position will get redirected to the root_path
 
 - PG_Search:
@@ -46,9 +45,9 @@ the method .global_search is applied.
 
   Three conditions have to be met for a discount to be applied:
 
-  1 - The product's code needs to match a desired product code (GR1 which means "Green Tea" in this case).
+  1 - A product's code needs to match a desired product code (GR1 which means "Green Tea" in this case).
   2 - A quantity cuota needs to be met (2 or more in this case).
-  3 - We check a boolean value in the OrderItem table that defaults to false, implying that this item in your cart has not been discounted before
+  3 - A boolean value in the OrderItem table that defaults to false has to equal false implying that this item in your cart has not been discounted before
   if product.code == 'GR1' && quantity >= 2 && self[:discounted] == false
 
   After all conditions are met:
@@ -59,7 +58,7 @@ the method .global_search is applied.
   Discount gets applied (In this case half off)
   self[:unit_price] = self[:unit_price] / 2
 
-  If the product quantity in your cart drops below a desired treshold and the discount had been applied before
+  If the product quantity in your cart drops below a desired treshold and the discount had been applied before,
   elsif product.code == 'GR1' && quantity < 2 && self[:discounted] == true
 
   We mark it as not discounted
@@ -87,7 +86,7 @@ the method .global_search is applied.
   It's discounted status is reset to false
   self[:discounted] = false
 
-  And fifty (50) cents gets added to each unit item
+  And fifty (50) cents gets added per unit item
   self[:unit_price] = self[:unit_price] + 0.5
 
   1 - Coffe get's identified by it's code
@@ -98,7 +97,7 @@ the method .global_search is applied.
   The product gets marked as discounted
   self[:discounted] = true
 
-  A discount of two thirds off each unit is applied
+  A discount of two thirds is applied to each unit item
   self[:unit_price] = self[:unit_price] / (2 / 3)
 
   If the Coffee quantity in your cart where to drop below three (3) units and the discount had been applied before
