@@ -4,9 +4,9 @@ class Product < ApplicationRecord
 
     include PgSearch::Model
     pg_search_scope :global_search,
-      against: [ :name, :code ],
-      associated_against: {
-      },
+    against: [ :name, :code ],
+    associated_against: {
+    },
       using: {
         tsearch: { prefix: true }
       }

@@ -29,7 +29,7 @@
         <td><%= product.name %></td>
        
         <td><%= number_to_currency product.price %></td>
-        <td><%= link_to 'Details', product_path(product), class: "text-decoration-none" %></td>
+        <td><%= link_to 'Details', product_path(product, query: params[:query] ), class: "text-decoration-none" %></td>
 
         <td>
           <%= form_for @order_item, remote: true do |f|%>
