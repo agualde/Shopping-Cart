@@ -6,7 +6,7 @@ export default class extends Controller {
   static debounces = ["update"];
 
   connect() {
-    useDebounce(this, { wait: 350 });
+    useDebounce(this);
   }
 
   update(event) {
