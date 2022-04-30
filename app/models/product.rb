@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
     has_many :order_items
-    validates :name, :code, :price, presence: true
+    validates :name, :code, :img_url, :price, presence: true
 
     include PgSearch::Model
     pg_search_scope :global_search,
