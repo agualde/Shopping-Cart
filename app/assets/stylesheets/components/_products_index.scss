@@ -24,3 +24,10 @@ tr {
   border: 1px solid #ced4da00;
   border-radius: 80px;
 }
+
+.show-img {
+  height: 300px;
+  img {
+    height: 100%;
+  }
+}

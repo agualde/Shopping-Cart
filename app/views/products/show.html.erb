@@ -1,6 +1,10 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class="show-img">
+  <%= image_tag @product.img_url %>
+</div>
+<div class="infos mx-3 my-3">
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -17,3 +21,5 @@
 </p>
 
 <%= link_to 'Back', root_path(query: params[:query]) %>
+
+</div>
