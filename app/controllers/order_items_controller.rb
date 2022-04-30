@@ -28,9 +28,9 @@ class OrderItemsController < ApplicationController
 
     def find_in_cart
         order_item = @order.order_items.where(product_id: params["order_item"]["product_id"].to_i)
-        unless order_item.empty?
-                new_quantity = order_item[0].quantity + params["order_item"]["quantity"].to_i 
-                order_item.update(quantity: new_quantity)
+        if order_item.present?
+                update_quantity = order_item[0].quantity + params["order_item"]["quantity"].to_i 
+                order_item.update(quantity: update_quantity)
              else    
                 OrderItem.create(order_id: @order.id, product_id: params["order_item"]["product_id"].to_i, quantity: params["order_item"]["quantity"].to_i)
         end
