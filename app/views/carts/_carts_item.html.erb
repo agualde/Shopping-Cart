@@ -3,7 +3,7 @@
         <div class="cart-details">
             <div class="d-flex justify-start align-items-center">
                 <h3 class="m-0"><%= item.product.name %></h3>
-                <h6 class="ml-2 m-0">(<%= number_to_currency item.product.price %>)</h6>
+                <h6 class="ml-2 m-0" style="font-size: 12px;">(<%= number_to_currency item.product.price, :unit => :€ %>)</h6>
             </div>
 
             <%= form_for item, remote: true do |f| %>
@@ -17,13 +17,13 @@
             <% end %>
         </div>
 
-            <h6 class="d-flex justify-content-end subtotal-margin">Subtotal: <%= number_to_currency item.total %></h6>
+            <h6 class="d-flex justify-content-end subtotal-margin" style="font-size: 14px;">Subtotal: <%= number_to_currency item.total, :unit => :€ %></h6>
 
         <% end %>
 </div>
 
         <div class="cart-total">
             <h3>Total:</h3>
-            <h3 class="subtotal-margin"><%= number_to_currency current_order.subtotal %></h3>
+            <h3 class="subtotal-margin"><%= number_to_currency current_order.subtotal, :unit => :€ %></h3>
         </div>  
 <%  %>

@@ -13,7 +13,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @product.price %>
+  <%= number_to_currency @product.price, :unit => :€ %>
 </p>
 
 <%= link_to 'Back', root_path(query: params[:query]) %>
