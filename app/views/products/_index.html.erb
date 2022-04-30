@@ -1,23 +1,4 @@
-<div data-controller="search">
-  <p id="notice"><%= notice %></p>
-
-  <div class="shop-header">
-    <div class="space">
-      <h1>Products</h1>
-    </div>
-    <div class="text-center space">
-      <%= form_with url: root_path, method: :get, html: { class:'my-4', data: { search_target: 'form' }} do |f| %>
-          <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search by name or code', value: params[:query], 
-                            data: { action: 'keyup->search#update', search_target: 'query' } %>
-      <% end %>
-    </div>  
-    <div class="space d-flex justify-content-end" id="cart">
-      <%= render 'carts/cart' %>
-    </div>
-  </div>
-
-<div data-search-target="output">
-  <table class="table">
+ <table class="table">
     <thead>
       <tr>
         <th>Name</th>
@@ -46,5 +27,3 @@
         </tbody>
       </table>
     <br>
-    </div>
-</div>
