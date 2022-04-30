@@ -6,7 +6,7 @@
   </div>
   <div class="text-center space">
     <%= form_with url: root_path, method: :get, html: { class:'my-4' } do |f| %>
-        <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search by code or name', value: params[:query] %>
+        <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search by name or code', value: params[:query] %>
     <% end %>
   </div>  
   <div class="space d-flex justify-content-end" id="cart">
