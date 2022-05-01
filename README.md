@@ -32,9 +32,9 @@ A User can visit the Product index and show page, select a product. A call to ac
 
 Two users are provided:
 
-1 - email: shopper@gmail.com, password: 123456, admin: false
+1 - email: admin@gmail.com, password: 123456, admin: true
 
-2 - email: admin@gmail.com, password: 123456, admin: true
+2 - email: shopper@gmail.com, password: 123456, admin: false
 
 After adding the devise gem for authentication a boolean value is added to the User model table named "admin".
 
