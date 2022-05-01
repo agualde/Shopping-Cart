@@ -1,5 +1,5 @@
 <h3>Current Orders:</h3>
-<% if !@orders.nil? %>
+<% if !@orders.empty? %>
  <table class="table">
     <thead>
       <tr>
@@ -22,4 +22,8 @@
       </table>
     <br>
   
+<% end %>
+
+<% if @orders.empty? %>
+  <h6 class="my-5 text-center"> No Past Orders Yet</h6>
 <% end %>
