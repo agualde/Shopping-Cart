@@ -13,6 +13,7 @@ rails db:seed
 - Base level logic:
 
 A simple DB structure is implemented consisting of four models:
+
 1 - User,
 
 2 - Product,
