@@ -1,9 +1,13 @@
 - Steps to run locally:
 
 rails db:create
+
 bundle install
+
 yarn add stimulus-use
+
 rails db:migrate
+
 rails db:seed
 
 - Base level logic:
