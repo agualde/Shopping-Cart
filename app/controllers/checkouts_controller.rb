@@ -11,7 +11,7 @@ class CheckoutsController < ApplicationController
     order = current_order
     amount_cents = (order.subtotal * 100)
     checkout  = Checkout.create!(amount: order.subtotal, state: 'pending', user: current_user)
-    
+
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
