@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     if params[:query].present?
       @order_item = current_order.order_items.new

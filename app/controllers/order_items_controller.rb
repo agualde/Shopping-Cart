@@ -1,4 +1,5 @@
 class OrderItemsController < ApplicationController
+    skip_before_action :authenticate_user!, only: [:create, :update, :destroy]
     def create 
         @order = current_order
         if @order.order_items.empty?
