@@ -1,12 +1,10 @@
 - Steps to run locally:
 
-1 - From terminal run 'rails db:create'
-2 - run 'bundle install'
-3 - 'yarn add stimulus-use'
-4 - 'rails generate devise:install'
-5 - 'rails g rails_admin:install'
-6 - 'rails db:migrate'
-7 - 'rails db:seed'
+rails db:create
+bundle install
+yarn add stimulus-use
+rails db:migrate
+rails db:seed
 
 - Base level logic:
 
