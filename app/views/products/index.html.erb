@@ -29,7 +29,6 @@
         <tbody>
           <% @products.order('name').each do |product| %>
             <tr>
-            <td></td>
               <td><%= link_to product.name, product_path(product), class:'text-decoration-none', style:'color: black' %></td>
             
               <td><%= number_to_currency product.price, :unit => :€ %></td>
