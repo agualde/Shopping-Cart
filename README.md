@@ -1,10 +1,10 @@
 - Steps to run locally:
 
-rails db:create
-
 bundle install
 
 yarn add stimulus-use
+
+rails db:create
 
 rails db:migrate
 
