@@ -14,11 +14,14 @@ rails db:seed
 
 A simple DB structure is implemented consisting of four models:
 1 - User,
-2 - Product,
-3 - OrderItem and
-4 - Cart
 
-A User can visit the Product index and show page, select a product. A call to action in the form of button 'Add to Cart' and a 'Quantity' number field is present. This action generates an Order Item which is composed of user_id, product_id, quantity, unit_price and total_price. In the Order Item model we define methods to calculate prices based on quantity and unit price, discounts are applied accordingly at the unit price level. An Order Item belongs to a Cart which consists of total and subtotal. Inside the Cart model we have methods that collect and calculate total price which is informed by the Order Item's total unit price and quantity.
+2 - Product,
+
+3 - OrderItem and
+
+4 - Order
+
+A User can visit the Product index and show page, select a product. A call to action in the form of button 'Add to Cart' and a 'Quantity' number field is present. This action generates an Order Item which is composed of user_id, product_id, quantity, unit_price and total_price. In the Order Item model we define methods to calculate prices based on quantity and unit price, discounts are applied accordingly at the unit price level. An Order Item belongs to a Order which consists of total and subtotal. Inside the Order model we have methods that collect and calculate total price which is informed by the Order Item's total unit price and quantity.
 
 - Sessions and cookies:
 
