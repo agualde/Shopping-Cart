@@ -16,20 +16,21 @@
     </div>
   </div>
 
-<div data-search-target="output">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+    <div data-search-target="output">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
         <tbody>
           <% @products.order('name').each do |product| %>
             <tr>
-              <td><%= product.name %></td>
+            <td></td>
+              <td><%= link_to product.name, product_path(product), class:'text-decoration-none', style:'color: black' %></td>
             
               <td><%= number_to_currency product.price, :unit => :€ %></td>
               <td><%= link_to 'Details', product_path(product, query: params[:query] ), class: "text-decoration-none" %></td>

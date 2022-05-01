@@ -2,7 +2,7 @@
         <% @order_items.order("created_at").each do |item| %>
         <div class="cart-details">
             <div class="d-flex justify-start align-items-center">
-                <h3 class="m-0"><%= item.product.name %></h3>
+                <h3 class="m-0"><%= link_to item.product.name, product_path(item.product.id), class:'text-decoration-none', style:'color:black' %></h3>
                 <h6 class="ml-2 m-0" style="font-size: 12px;">(<%= number_to_currency item.product.price, :unit => :€ %>)</h6>
             </div>
 
