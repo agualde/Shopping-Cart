@@ -1,0 +1,25 @@
+<h3>Current Orders:</h3>
+<% if !@orders.nil? %>
+ <table class="table">
+    <thead>
+      <tr>
+        <th colspan="1">Status</th>
+        <th>Amount</th>
+        <th>Id</th>
+      </tr>
+    </thead>
+
+        <tbody>
+          <% @orders.order('created_at DESC').each do |order| %>
+            <tr>
+            
+              <td><%= link_to order.state.capitalize, checkout_path(order) %></td>
+              <td><%= number_to_currency order.amount, :unit => :€ %></td>
+              <td><%= order.id %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <br>
+  
+<% end %>

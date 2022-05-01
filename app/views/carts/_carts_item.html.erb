@@ -22,8 +22,16 @@
         <% end %>
 </div>
 
+
+<div class="d-flex justify-content-between">
         <div class="cart-total">
             <h3>Total:</h3>
-            <h3 class="subtotal-margin"><%= number_to_currency current_order.subtotal, :unit => :€ %></h3>
+            <h3 class="total-margin"><%= number_to_currency current_order.subtotal, :unit => :€ %></h3>
         </div>  
-<%  %>
+        <% if !current_order.order_items.empty? %>
+            <%= form_tag checkouts_path do %>
+                <%= hidden_field_tag 'order_id', current_order.id %>
+                <%= submit_tag 'Checkout', class: 'btn btn-primary' %>
+            <% end %>
+        <% end %>
+</div>

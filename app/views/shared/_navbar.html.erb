@@ -21,6 +21,7 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Home", root_path, class: "dropdown-item" %>
               <%= link_to "My Cart", carts_path, class: "dropdown-item" %>
+              <%= link_to "Past Orders", checkouts_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>

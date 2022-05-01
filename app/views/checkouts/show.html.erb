@@ -1,0 +1,7 @@
+<h1>Order Summary and Status: </h1>
+
+<h3><%= number_to_currency @order.amount, :unit => :€ %></h3>
+
+<div class="pending-status">
+    <%= @order.state.capitalize %>
+</div>
