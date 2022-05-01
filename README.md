@@ -10,6 +10,13 @@ rails db:migrate
 
 rails db:seed
 
+- In the .env file set my Stripe payments test environment keys
+
+STRIPE_PUBLISHABLE_KEY=pk_test_51Kub5XDmYbwwcoNDTYG1GJynktp6LEN3kuajUhpgMv7aAeHnazc4pYQKM7BUDWYouNv8v0cfaUtpObMKo6W1It5600SLTCQ6lN
+STRIPE_SECRET_KEY=sk_test_51Kub5XDmYbwwcoNDo8gzcSS2VbqigoeIJAqynLCnPyCdC9M5PxV3fFc6UzpyjdWGhmupakzbGbl2cg50sLGqsYuW00jEjHyZ7e
+
+***********************************YOU ARE NOW READY TO TEST OUT THE PROGRAM***********************************
+
 - Base level logic:
 
 A simple DB structure is implemented consisting of four models:
