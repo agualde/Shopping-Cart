@@ -9,7 +9,7 @@
             <%= form_for item, remote: true do |f| %>
 
                 <%= f.hidden_field :product_id, :value => item.product.id %>
-                <%= f.number_field :quantity, :value => item.quantity.to_i, class: "text-center" %>
+                <%= f.number_field :quantity, :value => item.quantity.to_i, min: 1,class: "text-center" %>
                 <%= f.submit 'Update Cart', class: 'add_to_cart' %>
 
                 <%= link_to "[Delete]", order_item_path(item), method: :delete, remote: true, class: "text-decoration-none ml-2"  %>

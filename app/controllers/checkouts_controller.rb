@@ -26,6 +26,6 @@ class CheckoutsController < ApplicationController
       )
       
       checkout.update(checkout_session_id: session.id)
-    redirect_to new_checkout_payments_path(checkout, checkout_id: checkout)
+      redirect_to new_checkout_payments_path(checkout, checkout_id: checkout)
   end
 end
