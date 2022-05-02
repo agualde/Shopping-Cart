@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'payments/new'
   get 'checkouts/create'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   devise_for :users
 
   root to: 'products#index'
