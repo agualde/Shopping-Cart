@@ -1,6 +1,6 @@
 - Hosted solution:
 
-https://www.cart-agualde.herokuapp.com/
+https://cart-agualde.herokuapp.com/
 
 OR
 
