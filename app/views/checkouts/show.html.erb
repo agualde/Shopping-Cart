@@ -1,4 +1,9 @@
-<h1>Order Summary and Status: </h1>
+<div class="d-flex align-items-center">
+    <h1 class="m-0">Order Summary and Status: </h1>
+    <div class="<%= @order.state == 'pending' ? "pending-state" : "paid-state" %> mx-5">
+        <%= @order.state.capitalize %>
+    </div>
+</div>
 
 <div class="checkout-items">
     <% @items.each do | item | %>
@@ -9,10 +14,11 @@
     <% end %>
 </div>
 
-<div class="checkout-show-total d-flex justify-content-between">
-    <h3><%= number_to_currency @order.amount, :unit => :€ %></h3>
+<div class="d-flex justify-content-between">
+    <h3>Total:</h3>
 
-    <div class="<%= @order.state == 'pending' ? "pending-state" : "paid-state" %>">
-        <%= @order.state.capitalize %>
+    <div class="checkout-show-total d-flex justify-content-between">
+
+        <h3><%= number_to_currency @order.amount, :unit => :€ %></h3>
     </div>
 </div>
