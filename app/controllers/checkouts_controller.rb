@@ -4,7 +4,8 @@ class CheckoutsController < ApplicationController
   end
 
   def show
-    @order = current_user.checkouts.last
+    @order = current_user.checkouts.find(params[:id])
+    @items = Order.find(@order.orders_id).order_items
   end
   
   def create

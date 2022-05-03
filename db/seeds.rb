@@ -1,9 +1,9 @@
 puts 'Cleaning database .........'
+Checkout.destroy_all
 Order.destroy_all
 OrderItem.destroy_all
 Product.destroy_all
 User.destroy_all
-Checkouts.destroy_all
 
 puts 'Creating new products.......'
 Product.create([{name: 'Green Tea', code: 'GR1', price: '3.11', img_url: 'https://www.bigbasket.com/media/uploads/p/l/40024619-5_4-lipton-green-tea-pure-light.jpg' }, 

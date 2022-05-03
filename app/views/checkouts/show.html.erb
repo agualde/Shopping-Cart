@@ -1,7 +1,18 @@
 <h1>Order Summary and Status: </h1>
 
-<h3><%= number_to_currency @order.amount, :unit => :€ %></h3>
+<div class="checkout-items">
+    <% @items.each do | item | %>
+    <div class="d-flex justify-content-between my-5" style="border-bottom: 1px solid #00000017;">
+        <h3 class="my-0"> <%= item.product.name %> </h3>
+        <h3 class="my-0"> <%= item.quantity %> x <%= number_to_currency item.product.price, :unit => :€ %> </h3>
+    </div>
+    <% end %>
+</div>
 
-<div class="<%= @order.state == 'pending' ? "pending-state" : "paid-state" %>">
-    <%= @order.state.capitalize %>
+<div class="checkout-show-total d-flex justify-content-between">
+    <h3><%= number_to_currency @order.amount, :unit => :€ %></h3>
+
+    <div class="<%= @order.state == 'pending' ? "pending-state" : "paid-state" %>">
+        <%= @order.state.capitalize %>
+    </div>
 </div>
