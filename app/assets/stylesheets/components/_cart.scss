@@ -66,4 +66,7 @@
 
 .checkout-items {
   min-height: 65vh;
+  max-width: 80%;
+  margin: auto;
+  overflow: scroll;
 }

@@ -1,24 +1,25 @@
 <div class="d-flex align-items-center">
-    <h1 class="m-0">Order Summary and Status: </h1>
+    <h1 class="m-0 border-bottom">Order Summary and Status: </h1>
     <div class="<%= @order.state == 'pending' ? "pending-state" : "paid-state" %> mx-5">
         <%= @order.state.capitalize %>
     </div>
 </div>
 
-<div class="checkout-items">
+<div class="checkout-items pt-5">
     <% @items.each do | item | %>
-    <div class="d-flex justify-content-between my-5" style="border-bottom: 1px solid #00000017;">
-        <h3 class="my-0"> <%= item.product.name %> </h3>
-        <h3 class="my-0"> <%= item.quantity %> x <%= number_to_currency item.product.price, :unit => :€ %> </h3>
+    <div class="my-5">
+        <div class="d-flex justify-content-between py-2 border-bottom">
+            <h4 class="my-0"> <%= item.product.name %> </h4>
+            <h4 class="my-0"> <%= item.quantity %> x <%= number_to_currency item.product.price, :unit => :€ %> </h4>
+        </div>
+        <h6 class="d-flex justify-content-end my-3" style="font-size: 14px;">Subtotal: <%= number_to_currency item.total, :unit => :€ %></h6>
     </div>
     <% end %>
 </div>
 
 <div class="d-flex justify-content-between">
     <h3>Total:</h3>
-
     <div class="checkout-show-total d-flex justify-content-between">
-
         <h3><%= number_to_currency @order.amount, :unit => :€ %></h3>
     </div>
 </div>
