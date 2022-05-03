@@ -1,3 +1,9 @@
+- Hosted solution using Stripe webhooks:
+
+https://cart-agualde.herokuapp.com/
+
+OR
+
 - Steps to run locally:
 
 bundle install
