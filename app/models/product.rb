@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-    has_many :order_items
+    has_many :order_items, dependent: :destroy
     validates :name, :code, :img_url, :price, presence: true
     validates :code, uniqueness: true
 
