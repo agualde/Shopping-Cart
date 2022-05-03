@@ -1,4 +1,4 @@
-- Hosted solution using Stripe webhook events:
+- Hosted solution using Stripe webhooks:
 
 https://cart-agualde.herokuapp.com/
 
