@@ -1,3 +1,9 @@
+- Hosted solution:
+
+https://www.cart-agualde.herokuapp.com/
+
+OR
+
 - Steps to run locally:
 
 bundle install
