@@ -1,22 +1,33 @@
 <div class="container">
-  <div class="row py-4">
+  <div>
     <div class="col">
-      <h1>Checkout summary</h1>
-        <div class="cart-details mt-5">
-            <div class="d-flex justify-start align-items-center">
-                <h3 class="m-0"><%= number_to_currency @order.amount, class:'text-decoration-none', style:'color:black' %></h3>
+      <h1 class="pt-1 pb-4">Checkout summary</h1>
+            <div class="checkout-items">
+            <% @items.each do | item | %>
+            <div class="d-flex justify-content-between my-5" style="border-bottom: 1px solid #00000017;">
+              <h3 class="my-0"> <%= item.product.name %> </h3>
+              <h3 class="my-0"> <%= item.quantity %> x <%= number_to_currency item.product.price, :unit => :€ %> </h3>
             </div>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+            <% end %>
+            </div>
+          <div class="cart-details mt-5">
+              <div class="d-flex align-items-center">
+                  <h3 class="m-0">Total: <%= number_to_currency @order.amount, :unit => :€, class:'text-decoration-none', style:'color:black' %></h3>
+            </div>
+      <div>
+        <button id="pay" class="btn btn-primary">Pay</button>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
           });
-        });
-      </script> 
+        </script> 
+
+      </div>
     </div>
   </div>
 </div>
