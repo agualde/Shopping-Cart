@@ -21,7 +21,7 @@ rails db:seed
 STRIPE_PUBLISHABLE_KEY=pk_test_51Kub5XDmYbwwcoNDTYG1GJynktp6LEN3kuajUhpgMv7aAeHnazc4pYQKM7BUDWYouNv8v0cfaUtpObMKo6W1It5600SLTCQ6lN
 STRIPE_SECRET_KEY=sk_test_51Kub5XDmYbwwcoNDo8gzcSS2VbqigoeIJAqynLCnPyCdC9M5PxV3fFc6UzpyjdWGhmupakzbGbl2cg50sLGqsYuW00jEjHyZ7e
 
-***********************************YOU ARE NOW READY TO TEST OUT THE PROGRAM***********************************
+****************\*\*\*****************YOU ARE NOW READY TO TEST OUT THE PROGRAM****************\*\*\*****************
 
 - Base level logic:
 
@@ -51,8 +51,7 @@ Two users are provided:
 
 After adding the devise gem for authentication a boolean value is added to the User model table named "admin".
 
-The gem "rails_admin" was added to allow users marked as admins to access full CRUD capabilities from a panel found at the root URL ending in "/admin". A user without the
-true boolean value in this position will get redirected to the root_path
+The gem "rails_admin" and "rails_admin_import" were added to allow users marked as admins to access full CRUD capabilities over users and products either individually or from a file upload panel that accepts CSV, JSON and XML format from a panel found at the root URL ending in "/admin". A user without the true boolean value in this position will get redirected to the root_path. A test CSV file is provided in the root file directory called "admin_upload_test.csv"
 
 - PG_Search:
 
