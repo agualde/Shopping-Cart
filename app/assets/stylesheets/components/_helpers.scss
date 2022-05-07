@@ -1,3 +1,9 @@
 .space {
   width: 33% !important;
 }
+
+.collapse {
+  @media (max-width: 425px) {
+    display: none;
+  }
+}
