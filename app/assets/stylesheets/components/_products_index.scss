@@ -85,3 +85,15 @@ tr {
     padding-inline: 3px;
   }
 }
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+  background: linear-gradient(359deg, #191987c4, #27278e82);
+  height: 59px;
+  align-items: center;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}

@@ -16,10 +16,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body data-controller="search">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
+    <%= render 'shared/categories' %>
     <div class="yield-min container">
       <%= yield %>
     </div>

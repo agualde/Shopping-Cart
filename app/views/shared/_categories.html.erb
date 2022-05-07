@@ -1,0 +1,5 @@
+<div class="categories">
+  <% categories.each do |name| %>
+      <%= link_to name, root_path(query: name) %>
+  <% end %>
+</div>
