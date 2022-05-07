@@ -1,9 +1,9 @@
-<div data-controller="search">
+<div data-controller="search" style="min-height: 100vh;">
   <p id="notice"><%= notice %></p>
 
+      <h1>Products</h1>
   <div class="shop-header">
     <div class="space">
-      <h1>Products</h1>
     </div>
     <div class="text-center space">
       <%= form_with url: root_path, method: :get, html: { class:'my-4', data: { search_target: 'form' }} do |f| %>
@@ -44,9 +44,7 @@
         <% end %>
       </div>
     </div>
-
+</div>
     <div class="paginate mb-5">
       <%= will_paginate @products %>
-    </div>
-
 </div>
