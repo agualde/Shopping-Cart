@@ -3,16 +3,16 @@
 
       <h1>Products</h1>
   <div class="shop-header">
-    <div class="space">
+    <div class="space colapse">
     </div>
-    <div class="text-center space">
+    <div class="text-center space-grow">
       <%= form_with url: root_path, method: :get, html: { class:'my-4', data: { search_target: 'form' }} do |f| %>
           <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search by name or code', value: params[:query], 
                             data: { action: 'keyup->search#update', search_target: 'query' } %>
       <% end %>
     </div>  
 
-    <div class="space"></div>
+    <div class="space colapse"></div>
 
   </div>
 

@@ -2,8 +2,16 @@
   width: 33% !important;
 }
 
-.collapse {
-  @media (max-width: 425px) {
+.space-grow {
+  width: 33% !important;
+  @media (max-width: 991px) {
+    width: 100% !important;
+  }
+}
+
+.colapse {
+  display: block;
+  @media (max-width: 767px) {
     display: none;
   }
 }
