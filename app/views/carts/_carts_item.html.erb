@@ -12,7 +12,7 @@
                 <%= f.number_field :quantity, :value => item.quantity.to_i, min: 1, class: "text-center" %>
                 <%= f.submit 'Update Cart', class: 'add_to_cart login-btn' %>
 
-                <%= link_to "X", order_item_path(item), method: :delete, remote: true, class: "text-decoration-none ml-2 delete" %>
+                <%= link_to "X", order_item_path(item), method: :delete, remote: true, class: "text-decoration-none ml-2 delete", style:'color: #705c14;' %>
 
             <% end %>
         </div>
@@ -23,11 +23,11 @@
 
 <div class="d-flex justify-content-between">
         <div class="cart-total">
-            <h3>Total:</h3>
-            <h3 class="total-margin"><%= number_to_currency current_order.subtotal, :unit => :€ %></h3>
+            <h3 class="m-0">Total:</h3>
+            <h3 class="m-0"><%= number_to_currency current_order.subtotal, :unit => :€ %></h3>
         </div>  
         <% if !current_order.order_items.empty? %>
-            <%= form_tag checkouts_path do %>
+            <%= form_tag checkouts_path, class:'mx-4' do %>
                 <%= hidden_field_tag 'order_id', current_order.id %>
                 <%= submit_tag 'Checkout', class: 'add_to_cart login-btn' %>
             <% end %>
