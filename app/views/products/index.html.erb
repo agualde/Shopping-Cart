@@ -22,13 +22,14 @@
       <div class="grid my-5">
         <% @products.order('name').each do |product| %>
             <div class="card-trip">
-            <a href="<%= product_path(product) %>">
+            <%= link_to product_path(product, query: params[:query]) do %>
               <div style="height: 250px;
                           width: fit-content;
                           margin: auto;">
                 <%= image_tag product.img_url, class:"my-5", style:"height:100%;" %> 
               </div>
-            </a>
+            <% end %>
+
             
               <div class="card-trip-infos mx-1">
                 <div>
