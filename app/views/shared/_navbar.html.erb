@@ -9,7 +9,14 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <div id="cart" class="mx-5">
+          <%= render 'carts/cart' %>
+        </div>
+      
       <ul class="navbar-nav me-auto">
+
+
         <% if user_signed_in? %>
 
           <li class="nav-item dropdown">
