@@ -27,7 +27,7 @@
             <%= f.label :quantity, 'Quantity', class:'my-2' %>
             <%= f.select :quantity, options_for_select((1..30).to_a ) %>
           <div  class="my-2">
-          <%= f.submit 'Add to cart', class: "add_to_cart" %>
+          <%= f.submit 'Add to cart', class: "add_to_cart login-btn" %>
           </div>
           <%= link_to 'Back', root_path(query: params[:query]) %>
         </div>

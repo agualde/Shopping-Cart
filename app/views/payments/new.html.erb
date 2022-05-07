@@ -15,7 +15,7 @@
                   <h3 class="m-0">Total: <%= number_to_currency @order.amount, :unit => :€, class:'text-decoration-none', style:'color:black' %></h3>
             </div>
       <div>
-        <button id="pay" class="btn btn-primary" style="width: 100px;">Pay</button>
+        <button id="pay" class="add_to_cart login-btn" style="width: 100px;">Pay</button>
         <script src="https://js.stripe.com/v3/"></script>
         <script>
           const paymentButton = document.getElementById('pay');

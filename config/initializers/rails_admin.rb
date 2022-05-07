@@ -8,7 +8,7 @@ RailsAdmin.config do |config|
     warden.authenticate! scope: :user
   end
 
-  config.included_models = [ "Product", "User" ]
+  config.included_models = [ "Product", "User", "Category" ]
 
   config.current_user_method(&:current_user)
 
