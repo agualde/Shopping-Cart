@@ -9,7 +9,7 @@
 
 
       <div class="text-center space-grow">
-      <%= form_with url: root_path, method: :get, html: { class:'my-4', data: { search_target: 'form' }} do |f| %>
+      <%= form_with url: root_path, method: :get, html: { class:'m-y-4', data: { search_target: 'form' }} do |f| %>
           <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search', value: params[:query], 
                             data: { action: 'keyup->search#update', search_target: 'query' } %>
       <% end %>
