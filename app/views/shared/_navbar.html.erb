@@ -8,7 +8,7 @@
 
 
 
-      <div class="text-center space-grow">
+      <div class="text-center space">
       <%= form_with url: root_path, method: :get, html: { class:'m-y-4', data: { search_target: 'form' }} do |f| %>
           <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search', value: params[:query], 
                             data: { action: 'keyup->search#update', search_target: 'query' } %>
@@ -17,7 +17,7 @@
 
 
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler space" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
