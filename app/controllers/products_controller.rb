@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   def index
     if params[:query].present?
       @order_item = current_order.order_items.new
-      @products = Product.global_search(params[:query]).paginate(page: params[:page], per_page: 9)
+      @products = Product.global_search(params[:query].downcase).paginate(page: params[:page], per_page: 9)
       respond_to do |format|
         format.html 
         format.text { render partial: 'products/index', locals: { products: @products, order_item: @order_item }, formats: [:html] }

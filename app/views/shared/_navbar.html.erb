@@ -1,20 +1,33 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-design">
-  <div class="container-fluid mx-3">
+<div class="navbar navbar-expand-sm navbar-light navbar-design px-5" style="background: linear-gradient(359deg, #191987ad, #27278e82);">
+  <div class="container-fluid">
+  <div class="space">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://getuplead.com/wp-content/uploads/amenitiz-1-1024x576.png" %>
+      <%= image_tag "https://www.eu-startups.com/wp-content/uploads/2019/08/0-5-10.png" %>
     <% end %>
+  </div>
+
+
+
+      <div class="text-center space-grow">
+      <%= form_with url: root_path, method: :get, html: { class:'my-4', data: { search_target: 'form' }} do |f| %>
+          <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search by name or code', value: params[:query], 
+                            data: { action: 'keyup->search#update', search_target: 'query' } %>
+      <% end %>
+    </div>  
+
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse space justify-content-end" id="navbarSupportedContent">
         
         <div id="cart" class="mx-5">
           <%= render 'carts/cart' %>
         </div>
       
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav">
 
 
         <% if user_signed_in? %>
@@ -34,7 +47,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link", style:'color: white;' %>
           </li>
         <% end %>
       </ul>

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_03_134209) do
+ActiveRecord::Schema.define(version: 2022_05_07_172513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "checkouts", force: :cascade do |t|
     t.string "state", default: "pending"
@@ -52,6 +58,9 @@ ActiveRecord::Schema.define(version: 2022_05_03_134209) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "img_url"
+    t.bigint "category_id"
+    t.string "tags"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,4 +78,5 @@ ActiveRecord::Schema.define(version: 2022_05_03_134209) do
 
   add_foreign_key "checkouts", "orders", column: "orders_id"
   add_foreign_key "checkouts", "users"
+  add_foreign_key "products", "categories"
 end
