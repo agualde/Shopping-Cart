@@ -2,7 +2,7 @@
   <div class="container-fluid">
   <div class="space">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://www.eu-startups.com/wp-content/uploads/2019/08/0-5-10.png" %>
+      <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/5/58/Getir_logo.png" %>
     <% end %>
   </div>
 
@@ -10,7 +10,7 @@
 
       <div class="text-center space-grow">
       <%= form_with url: root_path, method: :get, html: { class:'my-4', data: { search_target: 'form' }} do |f| %>
-          <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search by name or code', value: params[:query], 
+          <%= f.text_field :query, class: "form-control text-center search", placeholder: 'Search', value: params[:query], 
                             data: { action: 'keyup->search#update', search_target: 'query' } %>
       <% end %>
     </div>  
@@ -46,8 +46,8 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link", style:'color: white;' %>
+          <li class="nav-item login-btn">
+            <%= link_to "Login", new_user_session_path, class: "nav-link", style:'font-weight:bold;' %>
           </li>
         <% end %>
       </ul>
