@@ -1,24 +1,31 @@
-      <div class="grid my-5">
-        <% @products.order('name').each do |product| %>
-            <div class="card-trip">
-            <a href="<%= product_path(product) %>">
-              <div style="height: 250px;
-                          width: fit-content;
-                          margin: auto;">
-                <%= image_tag product.img_url, class:"my-5", style:"height:100%;" %> 
-              </div>
-            </a>
-            
-              <div class="card-trip-infos mx-1">
-                <div>
-                  <h2><%= link_to product.name, product_path(product), class:'text-decoration-none', style:'color: black; font-weight: 500;' %></h2>
-                  <div class="d-flex align-items-center">
-                    <h6 class="my-2">⭐⭐⭐⭐⭐</h6>
-                    <span class="mx-1" style="font-size:10px;">(4)</span>
-                  </div>
-                  <h6 class="card-trip-pricing mb-0"><%= number_to_currency product.price, :unit => :€ %></h6>
+    <div class="grid my-5">
+      <% @products.order('name').each do |product| %>
+          <div class="card-trip">
+          <%= link_to product_path(product, query: params[:query]) do %>
+            <div style="height: 250px;
+                        width: fit-content;
+                        margin: auto;">
+              <%= image_tag product.img_url, class:"my-5", style:"height:100%;" %> 
+            </div>
+          <% end %>
+
+          
+            <div class="card-trip-infos mx-1">
+              <div>
+                <h2><%= link_to product.name, product_path(product), class:'text-decoration-none', style:'color: black; font-weight: 500;' %></h2>
+                <div class="d-flex align-items-center">
+                  <h6 class="my-2">⭐⭐⭐⭐⭐</h6>
+                  <span class="mx-1" style="font-size:10px;">(4)</span>
                 </div>
+                <h6 class="card-trip-pricing mb-0"><%= number_to_currency product.price, :unit => :€ %></h6>
+                <h6 class="my-3">Get it by:  <b><%= (Date.current + 14).strftime("%A %B %d, %Y") %></b></h6>
               </div>
             </div>
-        <% end %>
-      </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+    <div class="paginate mb-5">
+      <%= will_paginate @products %>
+</div>

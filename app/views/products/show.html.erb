@@ -22,6 +22,7 @@
     <%= number_to_currency @product.price, :unit => :€ %>
   </p>
 
+    <h6 class="my-3">Get it by:  <b><%= (Date.current + 14).strftime("%A %B %d, %Y") %></b></h6>
     <div class="d-flex justify-content-start">
       <%= form_for @order_item, remote: true, class: "card-trip-user avatar-bordered form-control" do |f|%>
         <%= f.hidden_field :product_id, :value => @product.id %>
