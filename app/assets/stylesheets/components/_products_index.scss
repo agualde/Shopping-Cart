@@ -70,3 +70,12 @@ tr {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
+
+.paginate {
+  display: flex;
+  justify-content: center;
+  a {
+    padding-inline: 3px;
+    color: black;
+  }
+}
