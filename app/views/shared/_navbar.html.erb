@@ -22,24 +22,22 @@
     </button>
 </div>
 
-    <div class="collapse navbar-collapse space d-flex justify-content-end" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse space" id="navbarSupportedContent" style="justify-content: end;">
         
-        <div id="cart" class="mx-4">
+        <div id="cart" class="mx-4 d-flex justify-content-center">
           <%= render 'carts/cart' %>
         </div>
       
+      <div class="login-mobile">
       <ul class="navbar-nav">
-
-
         <% if user_signed_in? %>
-
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown d-flex justify-content-center" style="flex-direction: column;">
             <% if current_user.admin %>
-              <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX9896883.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag "https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX9896883.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style:"margin: auto;" %>
               <% else %>
-              <%= image_tag "https://as1.ftcdn.net/v2/jpg/03/53/11/00/1000_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag "https://as1.ftcdn.net/v2/jpg/03/53/11/00/1000_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style:"margin: auto;" %>
             <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="border-radius: 6px; background-color: #5555a7;">
               <%= link_to "Home", root_path, class: "dropdown-item" %>
               <%= link_to "My Cart", carts_path, class: "dropdown-item" %>
               <%= link_to "Past Orders", checkouts_path, class: "dropdown-item" %>
@@ -47,11 +45,12 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item login-btn">
+          <div class="nav-item login-btn">
             <%= link_to "Login", new_user_session_path, class: "nav-link", style:'font-weight:bold;' %>
-          </li>
+          </div>
         <% end %>
       </ul>
+      </div>
     </div>
   </div>
 </div>

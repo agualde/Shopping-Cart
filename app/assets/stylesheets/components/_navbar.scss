@@ -34,3 +34,23 @@
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
 }
+
+.login-mobile {
+  @media (max-width: 991px) {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+#cart {
+  @media (max-width: 991px) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.dropdown-item {
+  color: #ffffff;
+}
