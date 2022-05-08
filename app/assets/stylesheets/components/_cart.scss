@@ -14,7 +14,7 @@
 }
 
 .subtotal-margin {
-  margin-right: 9rem;
+  margin-right: 6.5rem;
   @media (max-width: 991px) {
     font-size: 12px;
     margin-right: 5.5rem;
@@ -81,8 +81,10 @@
 }
 
 .btn-shrink {
+  width: 75px !important;
   @media (max-width: 991px) {
-    width: 100px;
+    width: 62px !important;
+    font-size: 10px;
   }
 }
 
