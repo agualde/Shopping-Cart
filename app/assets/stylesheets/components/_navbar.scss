@@ -10,7 +10,13 @@
 .navbar-design .navbar-brand img {
   width: 45px;
 }
-.nav-link {
+.navbar {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  @media (max-width: 991px) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
 }
 
 .avatar {
