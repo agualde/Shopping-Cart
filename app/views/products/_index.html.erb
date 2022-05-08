@@ -1,5 +1,5 @@
 
-  <div class="grid my-5">
+  <div class="grid">
   <% @products.order('name').each do |product| %>
       <div class="card-trip">
         <%= link_to product_path(product, query: params[:query]) do %>

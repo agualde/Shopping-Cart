@@ -2,9 +2,16 @@
   width: 33% !important;
 }
 
+.space-collapse {
+  width: 33% !important;
+  @media (min-width: 767px) {
+    width: 0% !important;
+  }
+}
+
 .space-grow {
   width: 33% !important;
-  @media (max-width: 991px) {
+  @media (min-width: 991px) {
     width: 100% !important;
   }
 }
