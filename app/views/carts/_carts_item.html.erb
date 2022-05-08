@@ -15,7 +15,7 @@
                 <%= f.select :quantity, options_for_select((1..30).to_a, item.quantity ), { include_blank: true }%>
                 <%= f.submit 'Update', class: 'add_to_cart login-btn btn-shrink', style: "height:100%; width: 60px;"  %>
 
-                <%= link_to "X", order_item_path(item), method: :delete, remote: true, class: "text-decoration-none ml-2 delete", style:'color: #705c14;' %>
+                <%= link_to "X", order_item_path(item), method: :delete, remote: true, data: {confirm: "Delete #{item.product.name} from cart?"}, class: "text-decoration-none ml-2 delete", style:'color: #705c14;' %>
 
             <% end %>
         </div>
