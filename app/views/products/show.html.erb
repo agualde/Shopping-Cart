@@ -25,7 +25,7 @@
         <%= f.hidden_field :product_id, :value => @product.id %>
         <div class="d-flex" style="width: 100px; display: flex; flex-direction: column; align-items: center; ">
             <%= f.label :quantity, 'Quantity', class:'my-2' %>
-            <%= f.select :quantity, options_for_select((1..30).to_a ) %>
+            <%= f.select :quantity, options_for_select((1..30).to_a) %>
           <div  class="my-2">
           <%= f.submit 'Add to cart', class: "add_to_cart login-btn", data: {confirm: "Add #{@product.name} to cart?"} %>
           </div>
