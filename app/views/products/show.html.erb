@@ -27,7 +27,7 @@
             <%= f.label :quantity, 'Quantity', class:'my-2' %>
             <%= f.select :quantity, options_for_select((1..30).to_a ) %>
           <div  class="my-2">
-          <%= f.submit 'Add to cart', class: "add_to_cart login-btn" %>
+          <%= f.submit 'Add to cart', class: "add_to_cart login-btn", data: {confirm: "Add #{@product.name} to cart?"} %>
           </div>
           <%= link_to 'Back', root_path(query: params[:query]), style:'color: #705c14;' %>
         </div>
