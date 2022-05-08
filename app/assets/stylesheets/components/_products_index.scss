@@ -39,20 +39,16 @@ tr {
 
 .show-img {
   display: flex;
-  justify-self: center;
-  height: 450px;
+  justify-content: center;
   width: 33%;
   margin: auto;
   @media (max-width: 991px) {
     width: fit-content;
-    height: 23rem;
+    height: 400px;
   }
   img {
-    height: 100%;
-    @media (max-width: 991px) {
-      width: fit-content;
-      height: 20rem;
-    }
+    width: 100%;
+    object-fit: contain;
   }
 }
 
