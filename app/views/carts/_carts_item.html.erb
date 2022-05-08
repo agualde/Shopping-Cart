@@ -1,22 +1,26 @@
 <div class="min-height">
         <% @order_items.order("created_at").each do |item| %>
+    <div class="cart-item">
+    
         <div class="cart-details">
-            <div class="d-flex justify-start align-items-center">
-                <h3 class="m-0"><%= link_to item.product.name, product_path(item.product.id), class:'text-decoration-none', style:'color:black' %></h3>
+            <div class="d-flex justify-start align-items-center space">
+                <h3 class="m-0 smaller-font"><%= link_to item.product.name, product_path(item.product.id), class:'text-decoration-none', style:'color:black' %></h3>
                 <h6 class="ml-2 m-0" style="font-size: 12px;">(<%= number_to_currency item.product.price, :unit => :€ %>)</h6>
             </div>
 
             <%= form_for item, remote: true do |f| %>
 
                 <%= f.hidden_field :product_id, :value => item.product.id %>
-                <%= f.number_field :quantity, :value => item.quantity.to_i, min: 1, class: "text-center" %>
-                <%= f.submit 'Update Cart', class: 'add_to_cart login-btn' %>
+                <%= f.label :quantity, 'Quantity:', class:'my-2 smaller-font' %>
+                <%= f.select :quantity, options_for_select((1..30).to_a )%>
+                <%= f.submit 'Update', class: 'add_to_cart login-btn btn-shrink', style: "height:100%; width: 60px;"  %>
 
                 <%= link_to "X", order_item_path(item), method: :delete, remote: true, class: "text-decoration-none ml-2 delete", style:'color: #705c14;' %>
 
             <% end %>
         </div>
-            <h6 class="d-flex justify-content-end subtotal-margin my-2" style="font-size: 14px;">Subtotal: <%= number_to_currency item.total, :unit => :€ %></h6>
+            <h6 class="d-flex justify-content-end subtotal-margin my-2 smaller-font" style="font-size: 14px;">Subtotal: <%= number_to_currency item.total, :unit => :€ %></h6>
+    </div>
         <% end %>
 </div>
 
@@ -29,7 +33,7 @@
         <% if !current_order.order_items.empty? %>
             <%= form_tag checkouts_path, class:'mx-4' do %>
                 <%= hidden_field_tag 'order_id', current_order.id %>
-                <%= submit_tag 'Checkout', class: 'add_to_cart login-btn' %>
+                <%= submit_tag 'Checkout', class: 'add_to_cart login-btn', style: 'height: 35px;' %>
             <% end %>
         <% end %>
 </div>

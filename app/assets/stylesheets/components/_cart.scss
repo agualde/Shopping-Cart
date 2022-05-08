@@ -14,7 +14,11 @@
 }
 
 .subtotal-margin {
-  margin-right: 14rem;
+  margin-right: 9rem;
+  @media (max-width: 991px) {
+    font-size: 12px;
+    margin-right: 5.5rem;
+  }
 }
 
 .total-margin {
@@ -33,7 +37,8 @@
 }
 
 .cart-item {
-  border-bottom: 1px solid black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .pending-state {
@@ -73,4 +78,16 @@
 
 .delete {
   color: #ef2525fc;
+}
+
+.btn-shrink {
+  @media (max-width: 991px) {
+    width: 100px;
+  }
+}
+
+.smaller-font {
+  @media (max-width: 991px) {
+    font-size: 15px;
+  }
 }
