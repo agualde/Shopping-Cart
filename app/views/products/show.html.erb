@@ -34,7 +34,7 @@
             <div class="d-flex" style="width: 100px; display: flex; flex-direction: column; align-items: center; ">
             <div class="d-flex">
                 <%= f.label :quantity, 'Quantity', class:'m-2' %>
-                <%= f.select :quantity, options_for_select((1..40).to_a) %>
+                <%= f.select :quantity, options_for_select((1..30).to_a) %>
             </div>
               <div  class="my-3">
               <%= f.submit 'Add to cart', class: "add_to_cart login-btn", data: {confirm: "Add #{@product.name} to cart?"} %>
