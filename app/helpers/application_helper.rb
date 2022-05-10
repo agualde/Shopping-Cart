@@ -11,7 +11,7 @@ module ApplicationHelper
 
     def current_order
         if !session[:order_id].nil?
-            Order.find(session[:order_id])
+            Order.find(session[:order_id]) rescue Order.new
         else
             Order.new
         end
