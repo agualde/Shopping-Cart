@@ -1,6 +1,5 @@
 puts 'Cleaning database .........'
 Checkout.destroy_all
-Order.destroy_all
 OrderItem.destroy_all
 Product.destroy_all
 User.destroy_all
