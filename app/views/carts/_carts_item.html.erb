@@ -25,7 +25,7 @@
         <td style="display: flex;justify-content: end;">
          <%= form_for item, remote: true do |f| %>
                 <%= f.hidden_field :product_id, :value => item.product.id %>
-                <%= f.select :quantity, options_for_select((1..30).to_a, item.quantity )%>
+                <%= f.number_field :quantity, value: item.quantity, style:'text-align: end;width: 30%;' %>
                 <%= f.submit 'Update', class: 'add_to_cart login-btn btn-shrink mx-3', style: "height:100%; width: 60px;" %>
                 <%= link_to "X", order_item_path(item), method: :delete, remote: true, data: {confirm: "Delete #{item.product.name} from cart?"}, class: "text-decoration-none ml-2 delete", style:'color: #705c14;' %>
             <% end %>
