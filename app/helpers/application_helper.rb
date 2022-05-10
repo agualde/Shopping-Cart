@@ -10,8 +10,8 @@ module ApplicationHelper
     end
 
     def current_order
-        if !session[:order_id].nil?
-            Order.find(session[:order_id]) rescue Order.new
+        if !session[:order_id].nil? && !Order.where(id: session[:order_id]).first.nil?
+            Order.find(session[:order_id])  
         else
             Order.new
         end
