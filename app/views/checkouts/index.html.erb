@@ -3,6 +3,7 @@
  <table class="table">
     <thead>
       <tr>
+        <th colspan="1">Created</th>
         <th colspan="1">Status</th>
         <th>Amount</th>
         <th>Id</th>
@@ -12,8 +13,8 @@
         <tbody>
           <% @orders.order('created_at DESC').each do |order| %>
             <tr>
-            
-              <td><%= link_to order.state.capitalize, checkout_path(order) %></td>
+              <td><%= link_to order.created_at.to_date.strftime("%A %B %d, %Y"), checkout_path(order), class:"text-decoration-none", style:'color:black;' %></td>    
+              <td><%= link_to order.state.capitalize, checkout_path(order), class:"text-decoration-none", style:"color:#{ order.state == 'pending' ? "#f6a406" : "green" };" %></td>
               <td><%= number_to_currency order.amount, :unit => :€ %></td>
               <td><%= order.id %></td>
             </tr>
