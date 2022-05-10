@@ -1,39 +1,62 @@
-<div class="min-height">
-        <% @order_items.order("created_at").each do |item| %>
-    <div class="cart-item">
-    
-        <div class="cart-details">
-            <div class="d-flex justify-start align-items-center space">
-                <h3 class="m-0 smaller-font"><%= link_to item.product.name, product_path(item.product.id), class:'text-decoration-none', style:'color:black' %></h3>
-                <h6 class="ml-2 m-0" style="font-size: 12px;">(<%= number_to_currency item.product.price, :unit => :€ %>)</h6>
-            </div>
+<div class="min-height container pb-5">
 
-            <%= form_for item, remote: true do |f| %>
+    <table class="table cart-item">
+        <tr>
+        <th>Product</th>
+        <th class="mobile-collapse">Price</th>
+        <th>Subtotal</th>
+        <th class="d-flex justify-content-end">Quantity</th>
+        <th></th>
+        </tr>
+            <% @order_items.order("created_at").each do |item| %>
+        <tr>
+        <td>
+                <h6 class="mb-0 smaller-font"><%= link_to item.product.name, product_path(item.product.id), class:'text-decoration-none', style:'color:black;' %></h6>
+        </td>
 
+        <td class="mobile-collapse">
+                <h6 class="mb-0 smaller-font">(<%= number_to_currency item.product.price, :unit => :€ %>)</h6>
+        </td>
+
+        <td>
+                <h6 class="mb-0 smaller-font"><%= number_to_currency item.total, :unit => :€ %></h6>
+
+        </td>
+        
+        <td >
+        
+         <%= form_for item, remote: true do |f| %>
                 <%= f.hidden_field :product_id, :value => item.product.id %>
-                <%= f.label :quantity, 'Quantity:', class:'my-2 smaller-font' %>
                 <%= f.select :quantity, options_for_select((1..30).to_a, item.quantity )%>
+
+        </td>
+        <td style="display: flex;justify-content: end;">
                 <%= f.submit 'Update', class: 'add_to_cart login-btn btn-shrink', style: "height:100%; width: 60px;"  %>
-
                 <%= link_to "X", order_item_path(item), method: :delete, remote: true, data: {confirm: "Delete #{item.product.name} from cart?"}, class: "text-decoration-none ml-2 delete", style:'color: #705c14;' %>
-
             <% end %>
         </div>
-            <h6 class="d-flex justify-content-end subtotal-margin my-2 smaller-font" style="font-size: 14px;">Subtotal: <%= number_to_currency item.total, :unit => :€ %></h6>
     </div>
         <% end %>
+
+        </td>
+        </tr>
+    </table>
 </div>
 
 
-<div class="d-flex justify-content-between">
-        <div class="cart-total">
-            <h3 class="m-0">Total:</h3>
-            <h3 class="m-0"><%= number_to_currency current_order.subtotal, :unit => :€ %></h3>
-        </div>  
-        <% if !current_order.order_items.empty? %>
-            <%= form_tag checkouts_path, class:'mx-4' do %>
-                <%= hidden_field_tag 'order_id', current_order.id %>
-                <%= submit_tag 'Checkout', class: 'add_to_cart login-btn', style: 'height: 35px;' %>
+  <table class="table mt-5 pt-5" style="border-top:1px solid black;">
+    <tr>
+      <th>Total</th>
+      <th>
+      <div class="d-flex justify-content-end">
+      <%= number_to_currency current_order.subtotal, :unit => :€ %>
+       <% if !current_order.order_items.empty? %>
+                <%= form_tag checkouts_path, class:'mx-4' do %>
+                    <%= hidden_field_tag 'order_id', current_order.id %>
+                    <%= submit_tag 'Checkout', class: 'add_to_cart login-btn', style: 'height: 35px;' %>
+                <% end %>
             <% end %>
-        <% end %>
-</div>
+      </div>
+        </th>
+    </tr>
+  </table>

@@ -90,6 +90,22 @@
 
 .smaller-font {
   @media (max-width: 991px) {
-    font-size: 15px;
+    font-size: 12px;
   }
+}
+
+.mobile-collapse {
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.edit_order_item {
+  display: flex;
+  justify-content: end;
+}
+
+select {
+  border: none;
+  border-bottom: 1px solid #625a5a21;
 }
