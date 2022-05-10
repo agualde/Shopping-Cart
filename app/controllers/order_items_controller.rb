@@ -2,8 +2,14 @@ class OrderItemsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:create, :update, :destroy]
     def create 
         @order = current_order
-        if @order.order_items.empty?
+        if @order.order_items.empty? && params[:product_id].nil?
             @order_item = @order.order_items.new(order_params)
+            @order.save
+            session[:order_id] = @order.id
+
+        elsif @order.order_items.empty? && params[:product_id].present
+            @order.save
+            @order.order_items.new(product_id: params[:product_id], order: order, quantity: 1 )
             @order.save
             session[:order_id] = @order.id
         else

@@ -13,23 +13,24 @@
           <div class="cart-details mt-5">
               <div class="d-flex align-items-center">
                   <h3 class="m-0">Total: <%= number_to_currency @order.amount, :unit => :€, class:'text-decoration-none', style:'color:black' %></h3>
-            </div>
-      <div>
-        <button id="pay" class="add_to_cart login-btn" style="width: 100px;">Pay</button>
-        <script src="https://js.stripe.com/v3/"></script>
-        <script>
-          const paymentButton = document.getElementById('pay');
-          paymentButton.addEventListener('click', () => {
-            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-            stripe.redirectToCheckout({
-              sessionId: '<%= @order.checkout_session_id %>'
-            });
-          });
-        </script> 
+          </div>
 
+          <div>
+            <button id="pay" class="add_to_cart login-btn" style="width: 100px;">Pay</button>
+            <script src="https://js.stripe.com/v3/"></script>
+            <script>
+              const paymentButton = document.getElementById('pay');
+              paymentButton.addEventListener('click', () => {
+                const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+                stripe.redirectToCheckout({
+                  sessionId: '<%= @order.checkout_session_id %>'
+                });
+              });
+            </script> 
+
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 </div>

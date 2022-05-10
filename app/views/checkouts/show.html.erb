@@ -5,6 +5,22 @@
     <div class="<%= @order.state == 'pending' ? "pending-state" : "paid-state" %> mx-5">
         <%= @order.state.capitalize %>
     </div>
+    <div>
+        <% if @order.state == 'pending' %>
+                  <button id="pay" class="add_to_cart login-btn" style="width: 100px;">Pay</button>
+                    <script src="https://js.stripe.com/v3/"></script>
+                    <script>
+                    const paymentButton = document.getElementById('pay');
+                      paymentButton.addEventListener('click', () => {
+                      const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+                      stripe.redirectToCheckout({
+                        sessionId: '<%= @order.checkout_session_id %>'
+                      });
+                    });
+              </script> 
+        <% end %>
+
+    </div>
 </div>
     <h6 class="my-2">Created: <%= @order.created_at %></h6>
 

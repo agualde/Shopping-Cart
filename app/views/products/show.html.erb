@@ -38,9 +38,14 @@
             </div>
               <div  class="my-3">
               <%= f.submit 'Add to cart', class: "add_to_cart login-btn", data: {confirm: "Add #{@product.name} to cart?"} %>
-              </div>
-            </div>
           <% end %>
+              </div>
+              <p>or</p>
+                <%= form_for @order_item, class:'mx-4' do |f|%>         
+                    <%= f.hidden_field :product_id, :value => @product.id %>
+                    <%= f.submit 'Buy now!', class: 'add_to_cart login-btn', style: 'height: 35px;' %>
+                <% end %>
+            </div>
           </div>
     </div>
 </div>
