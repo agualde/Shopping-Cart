@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_07_172513) do
+ActiveRecord::Schema.define(version: 2022_05_10_134310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_172513) do
     t.string "img_url"
     t.bigint "category_id"
     t.string "tags"
+    t.text "description"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

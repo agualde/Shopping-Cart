@@ -11,7 +11,7 @@
 
 .space-grow {
   width: 33% !important;
-  @media (min-width: 991px) {
+  @media (max-width: 991px) {
     width: 100% !important;
   }
 }
